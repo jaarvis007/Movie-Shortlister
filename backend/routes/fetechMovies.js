@@ -1,5 +1,5 @@
 const axios = require('axios');
-const Movie = require('../models/movies');
+const Movie = require('../models/user');
 const express = require("express");
 
 const app=express();
