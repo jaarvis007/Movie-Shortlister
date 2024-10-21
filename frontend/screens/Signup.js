@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
+import { View, TextInput, Button, Text, Alert } from 'react-native';
 import axios from 'axios';
 
 const Signup = ({ navigation }) => {
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleSignup = async () => {
+    if (!name || !email || !password) {
+      setError('Please fill in all fields.');
+      return;
+    }
+
     try {
-      const response = await axios.post('http://localhost:5000/api/signup', {
-        username,
+      const response = await axios.post('http://172.29.37.83:3000/api/signup', {
+        name,
         email,
         password
       });
 
-      const { token, user } = response.data;
-      // Store token and user details (use AsyncStorage or context)
-      navigation.navigate('Home');
+      Alert.alert('Registration Successful');
+      setError('');
+      navigation.navigate('Login');
     } catch (err) {
+      console.error(err);
       setError('Signup failed. Please try again.');
     }
   };
@@ -27,18 +33,23 @@ const Signup = ({ navigation }) => {
   return (
     <View>
       <TextInput
-        placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
+        placeholder="Name"
+        value={name}
+        onChangeText={setName}
       />
-      <TextInput placeholder="Email" value={email} onChangeText={setEmail} />
+      <TextInput
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+      />
       <TextInput
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
       />
-      {error ? <Text>{error}</Text> : null}
+      {error ? <Text style={{ color: 'red' }}>{error}</Text> : null}
       <Button title="Signup" onPress={handleSignup} />
     </View>
   );

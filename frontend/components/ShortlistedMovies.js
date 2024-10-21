@@ -17,11 +17,12 @@ const ShortlistedMovies = () => {
     return <Text>No Shortlist Movies..</Text>;
   }
 
+
   return (
     <View>
       <FlatList
         data={shortlistedMovies}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <ShortlistMovieCard movie={item} onShortlist={handleShortlist} />
         )}

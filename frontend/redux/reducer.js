@@ -1,10 +1,16 @@
-// reducer.js
+import { SET_SHORTLISTED_MOVIES } from './actions';
+
 const initialState = {
   shortlistedMovies: [],
 };
 
 const movieReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'SET_SHORTLISTED_MOVIES':
+      return {
+        ...state,
+        shortlistedMovies: action.payload,
+      };
     case 'ADD_MOVIE':
       const isMovieInList = state.shortlistedMovies.some(movie => movie.id === action.payload.id);
       if (isMovieInList) {
@@ -24,5 +30,6 @@ const movieReducer = (state = initialState, action) => {
       return state;
   }
 };
+
 
 export default movieReducer;
