@@ -1,7 +1,7 @@
-// authReducer.js
+
 const initialState = {
-    user: null,  // Stores the user object after login
-    error: null, // Stores any error message
+    user: null,
+    error: null,
   };
   
   const authReducer = (state = initialState, action) => {

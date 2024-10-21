@@ -4,7 +4,7 @@ const cors = require('cors');
 const connectDB = require("./config/db");
 const axios = require('axios');
 const Movie = require('./models/user.js');
-require('dotenv').config(); // Load environment variables
+require('dotenv').config(); 
 const API_KEY = process.env.TMDB_API_KEY;
 
 

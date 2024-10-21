@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSelector } from 'react-redux';
-import { Logout } from './Logout'; // Import the Logout component
+import { Logout } from './Logout'; 
 
-const img = require('../assets/profile.png'); // Ensure the path is correct
+const img = require('../assets/profile.png');
 
 const Profile = () => {
   const [userData, setUserData] = useState(null);
@@ -12,7 +12,7 @@ const Profile = () => {
 
   const getUserData = async () => {
     try {
-      const jsonValue = await AsyncStorage.getItem('user'); // Change 'user' to your actual key
+      const jsonValue = await AsyncStorage.getItem('user'); 
       const data = jsonValue != null ? JSON.parse(jsonValue) : null;
       setUserData(data);
     } catch (e) {
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   shortlistedMovies: {
     fontSize: 20,
     color: '#333',
-    marginBottom: 30, // Increased margin for better spacing
+    marginBottom: 30, 
   },
   loadingText: {
     fontSize: 20,
@@ -104,12 +104,12 @@ const styles = StyleSheet.create({
   },
   logoutButton: {
     marginTop: 20,
-    backgroundColor: '#0096FF', // Tomato color for the button
+    backgroundColor: '#0096FF', 
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
     alignItems: 'center',
-    elevation: 3, // Adds a shadow effect
+    elevation: 3, 
   },
   logoutButtonText: {
     color: '#fff',

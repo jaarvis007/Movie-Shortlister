@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#f0f0f0', // Light gray background
+    backgroundColor: '#f0f0f0', 
   },
   appName: {
     fontSize: 36, 
@@ -79,11 +79,11 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     borderWidth: 1,
-    borderColor: '#007BFF', // Blue border
+    borderColor: '#007BFF', 
     borderRadius: 5,
     padding: 10,
     marginBottom: 15,
-    backgroundColor: '#fff', // White background for inputs
+    backgroundColor: '#fff', 
   },
   errorText: {
     color: 'red',
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   loginLink: {
     marginTop: 20,
-    color: '#007BFF', // Blue text for the login link
+    color: '#007BFF', 
     textDecorationLine: 'underline',
   },
 });

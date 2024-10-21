@@ -3,12 +3,12 @@ import { View, TextInput, Button, Alert, Text, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setShortlistedMovies } from '../redux/actions'; // Update the import path as necessary
+import { setShortlistedMovies } from '../redux/actions'; 
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const dispatch = useDispatch(); // Use Redux dispatch
+  const dispatch = useDispatch(); 
 
   const handleLogin = async () => {
     try {
@@ -17,18 +17,18 @@ const LoginScreen = ({ navigation }) => {
         password,
       });
 
-      await AsyncStorage.setItem('user', JSON.stringify(response.data.user)); // Store user info
+      await AsyncStorage.setItem('user', JSON.stringify(response.data.user)); 
 
-      // Fetch shortlisted movies for the user
-      const userId = response.data.user.id; // Assuming the user ID is returned in the response
+     
+      const userId = response.data.user.id; 
       const moviesResponse = await axios.get(`http://172.29.37.83:3000/api/user/${userId}/shortlisted-movies`);
       console.log(moviesResponse.data.shortlistedMovies);
 
-      // Dispatch action to update Redux store with shortlisted movies
+     
       dispatch(setShortlistedMovies(moviesResponse.data.shortlistedMovies));
 
       console.log("Login Successful");
-      navigation.navigate("app"); // Navigate to AppNavigator
+      navigation.navigate("app"); 
     } catch (error) {
       console.log(error);
       Alert.alert("Login failed", error.response?.data.message || 'Please try again.'); // Error alert
@@ -72,10 +72,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '50%', // Full width to align buttons
+    width: '50%', 
   },
   buttonSpacer: {
-    width: 10, // Spacer width between buttons
+    width: 10, 
   },
   
   appName: {

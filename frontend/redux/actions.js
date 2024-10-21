@@ -1,4 +1,3 @@
-// actions.js
 export const SET_SHORTLISTED_MOVIES = 'SET_SHORTLISTED_MOVIES';
 
 export const setShortlistedMovies = (movies) => {
