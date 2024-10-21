@@ -2,8 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen.js';
 import ShortlistScreen from '../screens/ShortlistScreen.js';
-import { Ionicons } from '@expo/vector-icons';
 import Profile from '../screens/Profile.js';
+import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,19 +14,21 @@ const AppNavigator = () => {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === 'Home') {
+          if (route.name === 'Popular Movies') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Shortlisted Movies') {
             iconName = focused ? 'star' : 'star-outline';
+          } else if (route.name === 'Profile') {
+            iconName = focused ? 'person' : 'person-outline';
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'tomato',
+        tabBarActiveTintColor: 'blue',
         tabBarInactiveTintColor: 'gray',
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Popular Movies" component={HomeScreen} />
       <Tab.Screen name="Shortlisted Movies" component={ShortlistScreen} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>

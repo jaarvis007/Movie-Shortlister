@@ -51,10 +51,14 @@ const LoginScreen = ({ navigation }) => {
         onChangeText={(text) => setPassword(text)}
         style={styles.input}
       />
-      <Button title="Login" onPress={handleLogin} />
-      <Button title="Go to Signup" onPress={() => navigation.navigate('Signup')} />
+      <View style={styles.buttonContainer}>
+        <Button title="Login" onPress={handleLogin} />
+        <View style={styles.buttonSpacer} />
+        <Button title="Go to Signup" onPress={() => navigation.navigate('Signup')} />
+      </View>
     </View>
   );
+  
 };
 
 const styles = StyleSheet.create({
@@ -65,11 +69,20 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#f0f0f0',
   },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '50%', // Full width to align buttons
+  },
+  buttonSpacer: {
+    width: 10, // Spacer width between buttons
+  },
+  
   appName: {
     fontSize: 36, 
     fontWeight: 'bold',
     marginBottom: 40, 
-    color: '#FF6347',
+    color: '#0000FF',
   },
   input: {
     width: '100%',

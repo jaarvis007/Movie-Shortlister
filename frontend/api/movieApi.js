@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-pageNum=Math.floor(Math.random() * 500) + 1
-
+pageNum=Math.floor(Math.random() * 200) + 1
 const API_KEY = `a0c857effd9a4c08bb1905b33f159e6b`;
 
 export const fetchMovies = async () => {
